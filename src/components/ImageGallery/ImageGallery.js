@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 
 const ImageGallery = ({ images, onSelect }) => (
   <ul className="ImageGallery">
-    {images.map(({ id, webformatURL, tags, largeImageURL }) => (
+    {images.map(({ id, webformatURL, largeImageURL }) => (
       <ImageGalleryItem
         key={id}
         webformatURL={webformatURL}
-        tags={tags}
         onSelect={() => onSelect(largeImageURL)}
       />
     ))}
@@ -17,13 +16,12 @@ const ImageGallery = ({ images, onSelect }) => (
 ImageGallery.propTypes = {
   images: PropTypes.arrayOf(
   PropTypes.shape({
-  id: PropTypes.number.isRequired,
-  webformatURL: PropTypes.string.isRequired,
-  tags: PropTypes.string.isRequired,
-  largeImageURL: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      webformatURL: PropTypes.string.isRequired,
+      largeImageURL: PropTypes.string.isRequired,
   })
   ).isRequired,
-  onSelect: PropTypes.func.isRequired,
+      onSelect: PropTypes.func.isRequired,
   };
 
 export default ImageGallery;
